@@ -10,8 +10,20 @@ while True:
     print(today)
     print()
 
-    from main import run
-    run()
+    while True:
+        try:
+            from main import run
+            run()
+
+            break
+
+        except:
+            import traceback
+            print(traceback.format_exc())
+
+            # Если произошла какая-то ошибка попытаемся через 30 секунд попробовать снова
+            import time
+            time.sleep(30)
 
     print('\n\n' + '-' * 20 + '\n\n')
 
@@ -29,7 +41,7 @@ while True:
         left = timeout_date - today
         left = str_timedelta(left)
 
-        print('\r' * 50, end='')
+        print('\r' * 100, end='')
         print('До следующего запуска осталось {}'.format(left), end='')
 
         import sys
@@ -41,5 +53,5 @@ while True:
 
         today = datetime.today()
 
-    print('\r' * 50, end='')
+    print('\r' * 100, end='')
     print('\n')
