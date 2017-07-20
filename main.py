@@ -163,6 +163,9 @@ def run():
         print('{}. {}: {}'.format(i, repo, repo.url))
         try:
             clone_repo(repo.html_url, REPOS_DIR, repo.default_branch)
+            
+            import time
+            time.sleep(5)
 
         # TODO: обработка и timeout при ошибках
         except GitCommandError as e:

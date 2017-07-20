@@ -27,10 +27,10 @@ while True:
 
     print('\n\n' + '-' * 20 + '\n\n')
 
-    # Every 12 hours
+    # Every 3 days
     from datetime import timedelta
     today = datetime.today()
-    timeout_date = today + timedelta(hours=12)
+    timeout_date = today + timedelta(days=3)
 
     while today <= timeout_date:
         def str_timedelta(td):
